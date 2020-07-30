@@ -34,9 +34,9 @@ class App extends React.Component {
 
 
     
-  handleScoreChange = (delta) => {
+  handleScoreChange = (index,delta) => {
     this.setState( prevState => ({
-      score: prevState.score + 1
+      score: prevState.players[index].score += delta
     }));
   }
 
@@ -55,16 +55,18 @@ class App extends React.Component {
       <div className="scoreboard">
         <Header 
           title="Scoreboard" 
-          totalPlayers={this.state.players.length} 
+          players={this.state.players} 
         />
   
         {/* Players list */}
-        {this.state.players.map( player =>
+        {this.state.players.map( (player,index) =>
           <Player 
             name={player.name}
             score={player.score}
             id={player.id}
             key={player.id.toString()} 
+            index={index}
+            changeScore = {this.handleScoreChange}
             removePlayer={this.handleRemovePlayer}           
           />
         )}
