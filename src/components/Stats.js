@@ -12,8 +12,8 @@ const Stats = (props) => {
         <table className="stats">
   <tbody>
     <tr>
-      <td>Players:</td>
-      <td>0</td>
+      <td>Players:{ totalPlayers }</td>
+      <td></td>
     </tr>
     <tr>
       <td>Total Points:</td>
